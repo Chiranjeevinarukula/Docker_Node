@@ -19,6 +19,16 @@ app.get('/', (req, res) => {
   res.send('Hello World! Node.js is running!');
 });
 
+app.get('/users',(req,res)=>{
+  db.query("select * from users",(err,result)=>{
+    if(err){
+      res.send("got the Error !"+e);
+      return ;
+    }
+    res.send(result);
+  })
+})
+
 app.listen(port, () => {
   console.log(`App running on http://localhost:${port}`);
 });
